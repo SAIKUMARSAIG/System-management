@@ -1,152 +1,3 @@
-// import { useState, useEffect } from "react";
-// import { complaintService } from "../services/api";
-
-// const Dashboard = ({ userRole }) => {
-//   const [stats, setStats] = useState({
-//     total: 0,
-//     pending: 0,
-//     inProgress: 0,
-//     resolved: 0,
-//     totData: [],
-//   });
-
-//   useEffect(() => {
-//     const fetchStats = async () => {
-//       try {
-//         const [allResponse, pendingResponse, inProgressResponse, resolvedResponse] =
-//           await Promise.all([
-//             complaintService.getAllComplaints(),
-//             complaintService.getComplaintsByStatus("PENDING"),
-//             complaintService.getComplaintsByStatus("IN_PROGRESS"),
-//             complaintService.getComplaintsByStatus("RESOLVED"),
-//           ]);
-
-//         setStats({
-//           total: allResponse.data.length,
-//           pending: pendingResponse.data.length,
-//           inProgress: inProgressResponse.data.length,
-//           resolved: resolvedResponse.data.length,
-//           totData: allResponse.data,
-//         });
-//       } catch (error) {
-//         console.error("Error fetching stats:", error);
-//       }
-//     };
-
-//     fetchStats();
-//   }, []);
-
-//   return (
-//     <div className="space-y-8">
-//       <h1 className="text-3xl font-bold text-gray-800">Dashboard Overview</h1>
-
-//       {/* Stats Section (Dynamic) */}
-//       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-//         <div className="bg-white p-4 rounded-lg shadow">
-//           <h3 className="text-gray-600">Total Complaints</h3>
-//           <p className="text-3xl font-bold text-blue-600">{stats.total}</p>
-//         </div>
-//         <div className="bg-white p-4 rounded-lg shadow">
-//           <h3 className="text-gray-600">Pending</h3>
-//           <p className="text-3xl font-bold text-yellow-600">{stats.pending}</p>
-//         </div>
-//         <div className="bg-white p-4 rounded-lg shadow">
-//           <h3 className="text-gray-600">In Progress</h3>
-//           <p className="text-3xl font-bold text-blue-500">{stats.inProgress}</p>
-//         </div>
-//         <div className="bg-white p-4 rounded-lg shadow">
-//           <h3 className="text-gray-600">Resolved</h3>
-//           <p className="text-3xl font-bold text-green-600">{stats.resolved}</p>
-//         </div>
-//       </div>
-
-//       {/* Service Timings (Dynamic from API + Static Example) */}
-//       <div className="bg-white p-4 rounded-lg shadow">
-//         <h2 className="text-xl font-semibold mb-4">Service Timings</h2>
-//         <table className="w-full text-left border-collapse">
-//           <thead>
-//             <tr className="bg-gray-100">
-//               <th className="p-2">Service</th>
-//               <th className="p-2">Area / Ward</th>
-//               <th className="p-2">Timings</th>
-//               <th className="p-2">Status</th>
-//             </tr>
-//           </thead>
-//           <tbody>
-//             {stats.totData.map((data, index) => (
-//               <tr className="border-t" key={index}>
-//                 <td className="p-2">{data.description}</td>
-//                 <td className="p-2">{data.location}</td>
-//                 <td className="p-2">{data.title}</td>
-//                 <td className="p-2 text-blue-600 font-semibold">{data.status}</td>
-//               </tr>
-//             ))}
-//           </tbody>
-//         </table>
-//       </div>
-
-//       {/* Announcements (Static) */}
-//       <div className="bg-white p-4 rounded-lg shadow">
-//         <h2 className="text-xl font-semibold mb-4">Government Announcements</h2>
-//         <ul className="list-disc list-inside text-gray-700 space-y-2">
-//           <li>⚡ Power maintenance scheduled on 10th Sept in Ward 5.</li>
-//           <li>🛣️ Road repair drive starting from 12th Sept.</li>
-//           <li>🗑️ Special sanitation campaign in Ward 9 next week.</li>
-//         </ul>
-//       </div>
-
-//       {/* Admin Tools (Role Based) */}
-//       {userRole === "admin" && (
-//         <div className="bg-white p-4 rounded-lg shadow">
-//           <h2 className="text-xl font-semibold mb-4">Admin Tools</h2>
-//           <div className="flex gap-3">
-//             <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-//               Manage Workers
-//             </button>
-//             <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
-//               Generate Reports
-//             </button>
-//           </div>
-//         </div>
-//       )}
-
-//       {/* Contact Info (Static) */}
-//       <div className="bg-white p-4 rounded-lg shadow">
-//         <h2 className="text-xl font-semibold mb-4">Contact Information</h2>
-//         <p className="text-gray-700">
-//           <span className="font-semibold">📍 Address:</span> Municipal Office, Main Road, City Center
-//         </p>
-//         <p className="text-gray-700">
-//           <span className="font-semibold">📞 Phone:</span> +91 98765 43210
-//         </p>
-//         <p className="text-gray-700">
-//           <span className="font-semibold">✉️ Email:</span> support@govportal.in
-//         </p>
-//         <p className="text-gray-700">
-//           <span className="font-semibold">⏰ Working Hours:</span> Mon – Fri: 9 AM – 6 PM
-//         </p>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Dashboard;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { useState, useEffect } from "react";
 import { complaintService } from "../services/api"; // ✅ Use your actual API
 
@@ -212,7 +63,7 @@ const Dashboard = ({ userRole }) => {
     <div className="space-y-8 bg-black p-10">
       <h1 className="text-3xl font-bold text-cyan-400 border-b border-gray-700 pb-2">Dashboard Overview</h1>
 
-      {/* Stats Section */}
+      
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <StatCard title="Total Complaints" value={stats.total} color="text-cyan-400" icon="📊" />
         <StatCard title="Pending" value={stats.pending} color="text-yellow-400" icon="⏳" />
@@ -220,7 +71,7 @@ const Dashboard = ({ userRole }) => {
         <StatCard title="Resolved" value={stats.resolved} color="text-green-400" icon="✅" />
       </div>
 
-      {/* Complaints Table */}
+      
       <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
         <h2 className="text-xl font-semibold text-cyan-300 mb-4">Recent Complaints</h2>
         <div className="overflow-x-auto">
@@ -249,7 +100,7 @@ const Dashboard = ({ userRole }) => {
         </div>
       </div>
 
-      {/* Announcements */}
+      
       <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
         <h2 className="text-xl font-semibold text-cyan-300 mb-4">Government Announcements</h2>
         <ul className="space-y-3 text-gray-300">
@@ -265,7 +116,7 @@ const Dashboard = ({ userRole }) => {
         </ul>
       </div>
 
-      {/* Admin Tools */}
+     
       {userRole === "admin" && (
         <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
           <h2 className="text-xl font-semibold text-cyan-300 mb-4">Admin Tools</h2>

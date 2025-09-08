@@ -1,70 +1,3 @@
-// import { Link } from 'react-router-dom';
-
-// const Header = ({ currentUser, userRole, setCurrentUser, setUserRole }) => {
-//   const handleUserChange = (e) => {
-//     const username = e.target.value;
-//     setCurrentUser(username);
-    
-//     // Simple role assignment based on username
-//     if (username.includes('admin')) setUserRole('admin');
-//     else if (username.includes('worker')) setUserRole('worker');
-//     else setUserRole('citizen');
-//   };
-
-//   return (
-//     <header className="bg-blue-800 text-white shadow-md">
-//       <div className="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
-//         <Link to="/" className="text-xl font-bold mb-4 md:mb-0">Waste Management System</Link>
-        
-//         <nav className="flex flex-wrap gap-4 mb-4 md:mb-0">
-//           <Link to="/" className="hover:underline">Dashboard</Link>
-//           <Link to="/complaints" className="hover:underline">Complaints</Link>
-//           {userRole === 'citizen' && (
-//             <Link to="/create" className="hover:underline">Report Issue</Link>
-//           )}
-//         </nav>
-        
-//         <div className="flex items-center gap-3">
-//           <select 
-//             value={currentUser} 
-//             onChange={handleUserChange}
-//             className="bg-blue-700 text-white px-2 py-1 rounded border-none"
-//           >
-//             <option value="citizen1">Citizen 1</option>
-//             <option value="citizen2">Citizen 2</option>
-//             <option value="worker1">Worker 1</option>
-//             <option value="worker2">Worker 2</option>
-//             <option value="admin">Admin</option>
-//           </select>
-//           <span className="bg-blue-600 px-2 py-1 rounded text-sm">
-//             {userRole}
-//           </span>
-//         </div>
-//       </div>
-//     </header>
-//   );
-// };
-
-// export default Header;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import { Link } from 'react-router-dom';
 
 const Header = ({ currentUser, userRole, setCurrentUser, setUserRole }) => {
@@ -72,7 +5,7 @@ const Header = ({ currentUser, userRole, setCurrentUser, setUserRole }) => {
     const username = e.target.value;
     setCurrentUser(username);
 
-    // Simple role assignment based on username
+    
     if (username.includes('admin')) {
       setUserRole('admin');
     } else if (username.includes('worker')) {
@@ -85,12 +18,18 @@ const Header = ({ currentUser, userRole, setCurrentUser, setUserRole }) => {
   return (
     <header className="bg-gray-900 text-gray-300 shadow-lg border-b border-gray-700">
       <div className="container mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center">
-        {/* Logo/Title */}
+        
         <Link to="/" className="text-2xl font-bold text-cyan-400 tracking-wider mb-4 md:mb-0 hover:text-cyan-300 transition-colors duration-300">
           Service System
         </Link>
         
-        {/* Navigation Links */}
+
+
+
+
+
+
+
         <nav className="flex items-center gap-6 mb-4 md:mb-0">
           <Link to="/" className="hover:text-cyan-400 transition-colors duration-300">Dashboard</Link>
           <Link to="/complaints" className="hover:text-cyan-400 transition-colors duration-300">Complaints</Link>
@@ -101,7 +40,7 @@ const Header = ({ currentUser, userRole, setCurrentUser, setUserRole }) => {
           )}
         </nav>
         
-        {/* User Selector & Role Display */}
+        
         <div className="flex items-center gap-4">
           <div className="relative">
             <select 
